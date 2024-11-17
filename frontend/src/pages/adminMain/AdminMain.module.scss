@@ -1,0 +1,129 @@
+.root {
+  display: flex;
+}
+
+.header{
+  width: 400px;
+  height: 1180px;
+  background-color: #212A3E;
+  margin-top: -40px;
+  display: flex;
+  flex-direction: column;
+  button{
+    width: 260px;
+    height: 69px;
+    border-radius: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  p{
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    margin: 30px auto;
+    justify-content: center;
+    align-items: center;
+    
+  }
+}
+
+.collection {
+  margin: 20px;
+}
+
+
+.block {
+	width: 1260px;
+	height: 100%;
+	background-color: #394867;
+	border-radius: 20px;
+	border: none;
+	margin: 0 auto;
+	justify-content: center;
+	text-align: center;
+	color: white;
+	padding: 20px;
+}
+
+.photo {
+	margin: 0 auto;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	img {
+		width: 1020px;
+		height: 600px;
+		object-fit: cover;
+    border-radius: 20px;
+	}
+}
+
+.carTitle {
+	h1 {
+		font-size: 40px;
+		color: white;
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		align-items: center;
+	}
+	h2 {
+		color: white;
+		font-size: 32px;
+		justify-content: flex-start;
+		display: flex;
+		margin-left: 99px;
+		margin-top: 50px;
+	}
+	h3 {
+		width: 150px;
+		height: 59px;
+		background-color: white;
+		border-radius: 20px;
+		color: black;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+		font-size: 32px;
+	}
+}
+
+.carInfo {
+	p {
+		color: white;
+		font-size: 32px;
+		justify-content: flex-start;
+		display: flex;
+		margin-left: 99px;
+	}
+}
+
+.button {
+	color: black;
+	display: flex;
+	margin: 0 auto;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 99px;
+	button {
+		background-color: white;
+		border-radius: 10px;
+		width: 200px;
+		height: 49px;
+		font-size: 32px;
+		margin-right: 20px;
+	}
+}
+
+.loadingSpinner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+}

@@ -1,0 +1,92 @@
+.searchBlock {
+ width: 1300px;
+ height: 450px;
+ background-color: #394867;
+ box-shadow: 5px 5px 6px 4px rgba(0, 0, 0, 0.25);
+ justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.selects {
+    width: 500px;
+    height: 60px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+.verifiedVINCheck, .verifiedYear, .verifiedPrice{
+    width: 500px;
+    height: 60px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    line-height: 40px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.verifiedVINCheck p{
+  line-height: 40px;
+}
+
+.checkboxInput {
+  width: 30px;
+  height: 30px;
+  background-color: #394867;
+  line-height: 50px;
+}
+
+.formBlock {
+  justify-content: center;
+  align-items: center;
+  margin: 0  auto;
+  display: grid;
+  grid-template-columns: repeat(2, auto); 
+  grid-template-rows: repeat(4, auto); 
+  padding-top: 20px;
+}
+
+.buttonSearch {
+  width: 500px;
+    height: 60px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    line-height: 40px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.buttonSearch:active {
+  background-color: #9BA4B5;
+}
+
+.svgSearch {
+  line-height: 45px;
+  margin: 0 5px;
+}
+
+.inputVidDo input {
+  border: none;
+  font-size: 16px;
+  background-color: #f4f4f4;
+  color: black;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -1,0 +1,68 @@
+.addCarBlock {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  backdrop-filter: blur(10px);
+  margin: 0;
+  padding: 0;
+}
+
+.addCarBlock input {
+  width: 380px;
+  height: 49px;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 10px 20px;
+  font-size: 24px;
+  color: #000000;
+  background-color: white;
+}
+
+
+.addNewPhoto {
+  background-color: white;
+  height: 300px;
+  border-radius: 20px;
+  margin: 10px 20px;
+}
+
+.addNewPhoto p {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* #des {
+  height: 100px;
+} */
+
+.getInfo {
+  display: grid;
+    grid-template-columns: repeat(3, auto); 
+    grid-template-rows: repeat(3, auto);
+  background-color: #9BA4B5;
+  border-radius: 20px;
+  padding: 35px 20px;
+
+}
+
+.btnAddCar {
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+}
+
+.addCarAplly {
+  width: 230px;
+  height: 47px;
+  border-radius: 20px;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+}

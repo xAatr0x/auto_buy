@@ -1,0 +1,31 @@
+.chatAccBlock {
+  width: 400px;
+  height: 100px;
+  background-color: white;
+  display: flex;
+  border-radius: 10px;
+  margin: 5px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.chatAccMainInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 190px 52px 10px;
+}
+
+.chatAccName {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.chatAccLastMessage {
+  font-size: 15px;
+}
+
+.chatAccTime {
+  margin-right: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}

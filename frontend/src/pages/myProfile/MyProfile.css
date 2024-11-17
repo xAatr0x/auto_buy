@@ -1,0 +1,7 @@
+.exhibitedCarsCollection {
+  display: grid;
+    grid-template-columns: repeat(3, auto); 
+    grid-template-rows: repeat(3, auto);
+    justify-content: center;
+    margin: 0px auto;
+}

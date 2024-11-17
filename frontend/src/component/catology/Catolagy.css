@@ -1,0 +1,44 @@
+.categoryHeaderGermany {
+  width: 960px;
+  height: 120px;
+  background-image: url(../../assets/image/germanyCatalogy.png);
+  align-items: center;
+  margin: 0 auto;
+
+}
+
+.brandCar {
+   display: grid;
+    grid-template-columns: repeat(3, auto); 
+    grid-template-rows: repeat(3, auto);
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.brandBlock {
+  transition: 0.2s ease-in;
+  filter: grayscale(100%);
+}
+
+.brandBlock:hover {
+  filter: grayscale(0%);
+}
+
+.categoryHeaderJapan {
+  width: 960px;
+  height: 120px;
+  background-image: url(../../assets/image/japanCatalogy.png);
+  align-items: center;
+  margin: 0 auto;
+
+}
+
+.categoryHeaderUSA {
+  width: 960px;
+  height: 120px;
+  background-image: url(../../assets/image/usaCatalog.png);
+  align-items: center;
+  margin: 0 auto;
+
+}

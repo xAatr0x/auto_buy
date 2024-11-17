@@ -1,0 +1,109 @@
+.root {
+	display: flex;
+	margin-top: -40px;
+}
+
+.chatNav {
+	background-color: #394867;
+	height: 980px;
+	width: 410px;
+}
+
+.chatInfo {
+	background-color: #394867;
+	height: 980px;
+	width: 400px;
+
+	h3 {
+		text-align: center;
+		color: white;
+	}
+}
+
+.chatInfoTotal {
+	border-bottom: 2px solid white;
+	display: flex;
+	justify-content: space-between;
+
+	p {
+		color: white;
+		font-size: 20px;
+		margin: 10px;
+	}
+}
+
+.chatMain {
+	background-color: white;
+	height: 980px;
+	width: 1100px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+	p {
+		color: black;
+		margin-bottom: 10px;
+		margin-left: 20px;
+	
+	}
+
+	input {
+		width: 870px;
+		height: 55px;
+		padding: 10px;
+		margin-right: 10px;
+		border-radius: 20px;
+		font-size: 14px;
+		outline: none;
+	}
+}
+
+.chatInfo{
+	img{
+		object-fit: cover;
+		width: 300px;
+		height: 200px;
+		border-radius: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+	}
+}
+
+.input {
+	background-color:#9BA4B5 ;
+		border-radius: 20px;
+
+	input{
+		background-color: #9BA4B5;
+		border: none;
+		color: white;
+	}
+	button {
+		background-color: #394867;
+		color: white;
+		border-radius: 20px;
+		width: 163px;
+		height: 44px;
+		margin-right: 10px;
+		border: none;
+	}
+}
+
+.carInfo {
+	display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-template-rows: repeat(4, 50px); 
+	p{
+
+		font-size: 14px;
+		color: white;
+		border-bottom: 1px solid white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+

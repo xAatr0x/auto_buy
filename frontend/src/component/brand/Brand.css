@@ -1,0 +1,25 @@
+.brandBlock {
+    position: relative;
+    display: inline-block;
+}
+
+.brandBlock .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+}
+
+.brandBlock h1 {
+    color: white; 
+    font-size: 32px; 
+    
+}
+
+.brandBlock img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
