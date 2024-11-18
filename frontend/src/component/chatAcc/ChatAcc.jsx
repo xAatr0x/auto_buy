@@ -4,7 +4,7 @@ import avatarProfiveIcon from '../../assets/image/avatarProfiveIcon.png'
 
 function ChatAcc({ name, lastText, carId, onClick }) {
 	const handleClick = () => {
-		onClick(carId) // Передача carId при кліці на компонент
+		onClick(carId) 
 	}
 
 	return (

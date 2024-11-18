@@ -22,6 +22,7 @@ use App\Http\Controllers\CharController;
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('getUserByPhone/{phone}', [UserController::class, 'getUserByPhone']);
+Route::get('/getUserById/{id}', [UserController::class, 'getUserById']);
 Route::post('/sendMessage', [UserController::class, 'sendMessage']);
 Route::get('getMessages/{senderId}/{receiverId}/{carId}', [UserController::class, 'getMessages']);
 Route::get('getAllMessages/{receiverId}', [UserController::class, 'getAllMessages']);

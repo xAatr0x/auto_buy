@@ -146,7 +146,9 @@ function AdminMain() {
 							/>
 						</div>
 						<div className={styles.carTitle}>
-							<h1>
+							<div className={styles.title}>
+								<p>
+							Бранд:{' '}
 								<input
 									type='text'
 									name='brand'
@@ -154,7 +156,10 @@ function AdminMain() {
 									onChange={handleInputChange}
 									placeholder={`Бренд: ${selectedCar.brand}`}
 								/>
-								{' | '}
+								</p>
+								
+								<p>
+								Рік:{' '}
 								<input
 									type='text'
 									name='year'
@@ -162,9 +167,9 @@ function AdminMain() {
 									onChange={handleInputChange}
 									placeholder={`Рік: ${selectedCar.year}`}
 								/>
-							</h1>
-							<div className={styles.carInfo}>
-								<h3>
+								</p>
+								<p>
+								Ціна:{' '}
 									<input
 										type='text'
 										name='price'
@@ -172,7 +177,9 @@ function AdminMain() {
 										onChange={handleInputChange}
 										placeholder={`Ціна: ${selectedCar.price}`}
 									/>
-								</h3>
+								</p>
+							</div>
+							<div className={styles.carInfo}>
 								<p>
 									Модель:{' '}
 									<input
@@ -253,16 +260,20 @@ function AdminMain() {
 										placeholder={`VIN: ${selectedCar.vin_code}`}
 									/>
 								</p>
-								<p>
-									verified_vin:{' '}
-									<input
-										type='text'
-										name='verified_vin'
-										value={formData.verified_vin}
-										onChange={handleInputChange}
-										placeholder={`VIN: ${selectedCar.verified_vin}`}
-									/>
-								</p>
+								<p >
+  Верифікація:{' '}
+  <button 
+    onClick={() =>
+      setFormData(prevState => ({
+        ...prevState,
+        verified_vin: '1',
+      }))
+    }
+    className={`${styles.button1} ${formData.verified_vin === '1' ? styles.primary : ''}`}
+  >
+    {formData.verified_vin === '1' ? 'Верифіковано' : 'Верифікувати'}
+  </button>
+</p>
 								<h2>Опис для авто</h2>
 								<p>
 									<textarea

@@ -14,7 +14,7 @@ function Profile() {
 			<div className={styles.root}>
 				<div className={styles.avatarAcc}>
 					<img src={avatarProfiveIcon} alt='avatar' />
-					<button >Додати фото</button>
+					
 				</div>
 				<div className={styles.infoUser}>
 					<p>Ім'я: {infoUser.name}</p>
