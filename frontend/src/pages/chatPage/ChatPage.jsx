@@ -25,6 +25,7 @@ function ChatPage() {
 			.then(response => {
 				setMessages(response.data)
 				getAllMessages() 
+				console.log(response.data)
 			})
 			.catch(error => {
 				console.error('Error fetching messages:', error)
@@ -75,7 +76,7 @@ function ChatPage() {
 				const { data } = await axios.get(`http://localhost:8000/api/car/${id}`)
 				setItem(data)
 			} catch (error) {
-				alert('Error when you want to get information :(')
+				//alert('Error when you want to get information :(')
 			}
 		}
 		fetchItem()
@@ -137,20 +138,30 @@ function ChatPage() {
 				</div>
 				<div className={styles.chatMain}>
 					{messages.map(message => (
-						<div key={message.id}>
-							<p className={styles.message}>{message.content}</p>
+						<div
+						key={message.id}
+						className={
+							message.sender_id === userInfo.id
+							? styles.ownMessage // Стиль для ваших повідомлень
+							: styles.otherMessage // Стиль для повідомлень інших користувачів
+						}
+						>
+						<p className={styles.senderName}>
+							{message.sender_id === userInfo.id ? 'Ви' : message.sender.name}
+						</p>
+						<p className={styles.message}>{message.content}</p>
 						</div>
 					))}
 					<div className={styles.input}>
 						<input
-							type='text'
-							value={newMessage}
-							onChange={e => setNewMessage(e.target.value)}
-							placeholder='Введіть повідомлення...'
+						type="text"
+						value={newMessage}
+						onChange={e => setNewMessage(e.target.value)}
+						placeholder="Введіть повідомлення..."
 						/>
 						<button onClick={sendMessage}>Надіслати</button>
 					</div>
-				</div>
+					</div>
 				<div className={styles.chatInfo}>
 					{item && (
 						<>

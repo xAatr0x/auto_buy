@@ -39,16 +39,16 @@ function AdminMain() {
 	const [isAdmin, setIsAdmin] = useState(false)
 	const navigate = useNavigate()
 
-	// const user = localStorage.getItem('user-info')
-	// const infoUser = JSON.parse(user)
+	const user = localStorage.getItem('user-info')
+	const infoUser = JSON.parse(user)
 
-	// useEffect(() => {
-	// 	if (infoUser.is_admin) {
-	// 		setIsAdmin(true)
-	// 	} else {
-	// 		navigate('/')
-	// 	}
-	// }, [navigate])
+	useEffect(() => {
+		if (infoUser.is_admin) {
+			setIsAdmin(true)
+		} else {
+			navigate('/')
+		}
+	}, [navigate])
 
 	const openModal = car => {
 		setSelectedCar(car)

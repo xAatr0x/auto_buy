@@ -107,3 +107,24 @@
 	}
 }
 
+.ownMessage {
+	text-align: right;
+	background-color: #d1f5d3;
+	padding: 10px;
+	margin: 5px 0;
+	border-radius: 10px;
+  }
+  
+  .otherMessage {
+	text-align: left;
+	background-color: #f1f1f1;
+	padding: 10px;
+	margin: 5px 0;
+	border-radius: 10px;
+  }
+  
+  .senderName {
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin-bottom: 5px;
+  }
