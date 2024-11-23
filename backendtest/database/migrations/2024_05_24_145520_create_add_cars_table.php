@@ -22,6 +22,7 @@ class CreateAddCarsTable extends Migration
             $table->string('body_type');
             $table->string('region');
             $table->string('city');
+            $table->string('is_sold');
             $table->string('vin_code');
             $table->boolean('verified_vin')->default(false);
             $table->integer('number_of_owners');

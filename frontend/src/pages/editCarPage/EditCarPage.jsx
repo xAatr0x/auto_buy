@@ -16,7 +16,7 @@ function EditCarPage() {
         region: '',
         city: '',
         vin_code: '',
-        verified_vin: '',
+        verified_vin: 0,
         number_of_owners: '',
         phone_owner: '',
         description: '',
@@ -49,11 +49,14 @@ function EditCarPage() {
     // Обробка сабміту форми
     const handleSubmit = async (e) => {
         e.preventDefault(); // Запобігає перезавантаженню сторінки
-
+    
+        // Оновлюємо поле `verified_vin` перед надсиланням
+        const updatedFormData = { ...formData, verified_vin: 0 };
+    
         try {
-            const response = await axios.put(`http://localhost:8000/api/cars/${id}`, formData);
+            const response = await axios.put(`http://localhost:8000/api/cars/${id}`, updatedFormData);
             console.log('Автомобіль оновлено:', response.data);
-            navigate(`/myprofile`); // Переадресація на сторінку автомобіля після успішного оновлення
+            navigate(`/myprofile`); // Переадресація на сторінку профілю після успішного оновлення
         } catch (error) {
             console.error('Помилка оновлення автомобіля:', error);
         }
@@ -151,16 +154,6 @@ function EditCarPage() {
                         name="vin_code"
                         value={formData.vin_code || ''}
                         onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Перевірений VIN:
-                    <input
-                        type="text"
-                        name="verified_vin"
-                        value={formData.verified_vin || ''}
-                        onChange={handleChange}
-                        readOnly
                     />
                 </label>
                 <label>

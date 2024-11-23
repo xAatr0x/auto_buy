@@ -20,6 +20,7 @@ class AddCar extends Model
         'city',
         'vin_code',
         'verified_vin',
+        'is_sold',
         'number_of_owners',
         'phone_owner',
         'description',

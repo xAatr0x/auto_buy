@@ -16,6 +16,7 @@ function CarModal({ cars, onClose, onEdit }) {
                             className={styles.carItem}
                             onClick={() => onEdit(car.id)}
                         >
+                            <p>Бренд: {car.brand}</p>
                             <p>Модель: {car.model}</p>
                             <p>Ціна: {car.price}</p>
                         </li>
