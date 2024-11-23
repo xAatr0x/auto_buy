@@ -85,7 +85,7 @@ function AdminMain() {
 				updatedData
 			)
 			if (updatedData.verified_vin === '1') {
-				await notifyUser(carId)
+				// await notifyUser(carId)
 			}
 			fetchCars()
 			closeModal()
@@ -261,19 +261,19 @@ function AdminMain() {
 									/>
 								</p>
 								<p >
-  Верифікація:{' '}
-  <button 
-    onClick={() =>
-      setFormData(prevState => ({
-        ...prevState,
-        verified_vin: '1',
-      }))
-    }
-    className={`${styles.button1} ${formData.verified_vin === '1' ? styles.primary : ''}`}
-  >
-    {formData.verified_vin === '1' ? 'Верифіковано' : 'Верифікувати'}
-  </button>
-</p>
+									Верифікація:{' '}
+									<button 
+										onClick={() =>
+										setFormData(prevState => ({
+											...prevState,
+											verified_vin: '1',
+										}))
+										}
+										className={`${styles.button1} ${formData.verified_vin === '1' ? styles.primary : ''}`}
+									>
+										{formData.verified_vin === '1' ? 'Верифіковано' : 'Верифікувати'}
+									</button>
+									</p>
 								<h2>Опис для авто</h2>
 								<p>
 									<textarea

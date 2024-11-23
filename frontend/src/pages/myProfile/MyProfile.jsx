@@ -9,11 +9,16 @@ import avatarProfiveIcon from '../../assets/image/avatarProfiveIcon.png'
 import styles from './Profile.module.scss'
 import EditBtn from '../../assets/svg/EditBtn'
 import SoldBtn from '../../assets/svg/SoldBtn'
+import CarModal from '../../component/carModel/CarModal'
 
 function MyProfile() {
 	const user = localStorage.getItem('user-info')
 	const infoUser = JSON.parse(user)
 	console.log(infoUser.number)
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+const openModal = () => setIsModalOpen(true);
+const closeModal = () => setIsModalOpen(false);
 const LoadingSpinner = () => (
 	<svg
 		className='loadingSpinner'
@@ -79,8 +84,7 @@ const LoadingSpinner = () => (
 					<p>Продано</p>
 				</div>
 				<div className={styles.btn}>
-					<button>
-						{' '}
+						<button onClick={openModal}>
 						<EditBtn />
 						Редагувати
 					</button>
@@ -89,6 +93,16 @@ const LoadingSpinner = () => (
 					</button>
 				</div>
 			</div>
+			{isModalOpen && (
+            <CarModal
+                cars={cars}
+                onClose={closeModal}
+                onEdit={id => {
+                    closeModal();
+                    window.location.href = `/edit-car/${id}`;
+                }}
+            />
+        )}
 			{loading ? (
 				<div className='loadingContainer'>
 					<LoadingSpinner />

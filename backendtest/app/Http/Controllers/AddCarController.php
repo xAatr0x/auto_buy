@@ -5,40 +5,51 @@ use App\Models\AddCar;
 use Illuminate\Http\Request;
 use App\Models\Test;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class AddCarController extends Controller
 {
-  function testAdd(Request $req){
-        $test = new Test;
-        $test->type_of_transport = $req->input('type_of_transport');
-        $test->brand = $req->input('brand');
-        $test->model = $req->input('model');
-        $test->year = $req->input('year');
-        $test->runs = $req->input('runs');
-        $test->body_type = $req->input('body_type');
-        $test->region = $req->input('region');
-        $test->city = $req->input('city');
-        $test->vin_code = $req->input('vin_code');
-        $test->verified_vin = $req->input('verified_vin');
-        $test->number_of_owners = $req->input('number_of_owners');
-        $test->phone_owner = $req->input('phone_owner');
-        $test->description = $req->input('description');
-
-        $test->gearbox = $req->input('gearbox');
-        $test->fuel_type = $req->input('fuel_type');
-        $test->fuel_consumption_city = $req->input('fuel_consumption_city');
-        $test->fuel_consumption_highway = $req->input('fuel_consumption_highway');
-        $test->fuel_consumption_combined = $req->input('fuel_consumption_combined');
-        $test->engine_power = $req->input('engine_power');
-        $test->number_of_doors = $req->input('number_of_doors');
-        $test->color = $req->input('color');
-
-        $test->price = $req->input('price');
+    public function testAdd(Request $req)
+    {
+        // Валідація даних
+        $validator = Validator::make($req->all(), [
+            'type_of_transport' => 'required|string|max:50',
+            'brand' => 'required|string|max:50',
+            'model' => 'required|string|max:50',
+            'year' => 'required|integer|min:1900|max:' . date('Y'),
+            'runs' => 'required|integer|min:0',
+            'body_type' => 'required|string|max:50',
+            'region' => 'required|string|max:100',
+            'city' => 'required|string|max:100',
+            'vin_code' => 'required|string|max:17|unique:add_cars,vin_code',
+            'verified_vin' => 'required|boolean',
+            'number_of_owners' => 'required|integer|min:0',
+            'phone_owner' => 'required|string|max:15',
+            'description' => 'nullable|string|max:1000',
+            'gearbox' => 'required|string|max:50',
+            'fuel_type' => 'required|string|max:50',
+            'fuel_consumption_city' => 'nullable|numeric|min:0',
+            'fuel_consumption_highway' => 'nullable|numeric|min:0',
+            'fuel_consumption_combined' => 'nullable|numeric|min:0',
+            'engine_power' => 'required|integer|min:1',
+            'number_of_doors' => 'required|integer|min:2|max:5',
+            'color' => 'required|string|max:50',
+            'price' => 'required|numeric|min:0',
+            'photo_paths' => 'required|file|mimes:jpg,jpeg,png|max:2048',
+        ]);
+    
+        // Повернути помилки валідації, якщо вони є
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+    
+        // Збереження даних
+        $test = new Test($req->except('photo_paths'));
         $test->photo_paths = $req->file('photo_paths')->store('products', 'public');
         $test->save();
-        return $test;
-        
-  }
+    
+        return response()->json($test, 201);
+    }
 
 // public function testAdd(Request $request)
 // {
@@ -84,47 +95,61 @@ class AddCarController extends Controller
 //     return $test;
 // }
 
-  public function update(Request $req, $id)
+public function update(Request $req, $id)
 {
+    // Знайти автомобіль
     $test = Test::find($id);
 
     if (!$test) {
         return response()->json(['error' => 'Car not found'], 404);
     }
 
-    $test->type_of_transport = $req->input('type_of_transport');
-    $test->brand = $req->input('brand');
-    $test->model = $req->input('model');
-    $test->year = $req->input('year');
-    $test->runs = $req->input('runs');
-    $test->body_type = $req->input('body_type');
-    $test->region = $req->input('region');
-    $test->city = $req->input('city');
-    $test->vin_code = $req->input('vin_code');
-    $test->verified_vin = $req->input('verified_vin');
-    $test->number_of_owners = $req->input('number_of_owners');
-    $test->phone_owner = $req->input('phone_owner');
-    $test->description = $req->input('description');
+    // Валідація даних
+    $validator = Validator::make($req->all(), [
+        'type_of_transport' => 'required|string|max:50',
+        'brand' => 'required|string|max:50',
+        'model' => 'required|string|max:50',
+        'year' => 'required|integer|min:1900|max:' . date('Y'),
+        'runs' => 'required|integer|min:0',
+        'body_type' => 'required|string|max:50',
+        'region' => 'required|string|max:100',
+        'city' => 'required|string|max:100',
+        'vin_code' => 'required|string|max:17|unique:add_cars,vin_code,' . $id,
+        'verified_vin' => 'required|boolean',
+        'number_of_owners' => 'required|integer|min:0',
+        'phone_owner' => 'required|string|max:15',
+        'description' => 'nullable|string|max:1000',
+        'gearbox' => 'required|string|max:50',
+        'fuel_type' => 'required|string|max:50',
+        'fuel_consumption_city' => 'nullable|numeric|min:0',
+        'fuel_consumption_highway' => 'nullable|numeric|min:0',
+        'fuel_consumption_combined' => 'nullable|numeric|min:0',
+        'engine_power' => 'required|integer|min:1',
+        'number_of_doors' => 'required|integer|min:2|max:5',
+        'color' => 'required|string|max:50',
+        'price' => 'required|numeric|min:0',
+        // 'photo_paths' => 'nullable|file|mimes:jpg,jpeg,png|max:2048',
+    ]);
 
-    $test->gearbox = $req->input('gearbox');
-    $test->fuel_type = $req->input('fuel_type');
-    $test->fuel_consumption_city = $req->input('fuel_consumption_city');
-    $test->fuel_consumption_highway = $req->input('fuel_consumption_highway');
-    $test->fuel_consumption_combined = $req->input('fuel_consumption_combined');
-    $test->engine_power = $req->input('engine_power');
-    $test->number_of_doors = $req->input('number_of_doors');
-    $test->color = $req->input('color');
 
-    $test->price = $req->input('price');
-
-    if ($req->hasFile('photo_paths')) {
-        $test->photo_paths = $req->file('photo_paths')->store('products', 'public');
+    
+    if ($validator->fails()) {
+        return response()->json(['errors' => $validator->errors()], 422);
     }
+
+    // Оновлення даних
+    $test->fill($req->except('photo_paths'));
+
+    // if ($req->hasFile('photo_paths')) {
+    //     $test->photo_paths = $req->file('photo_paths')->store('products', 'public');
+    // }
 
     $test->save();
 
     return response()->json($test);
 }
+
+
 
 public function updateWithNotification(Request $req, $id)
     {

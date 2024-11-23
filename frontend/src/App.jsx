@@ -10,6 +10,7 @@ import AdminMain from './pages/adminMain/AdminMain'
 import Header from './component/header/Header'
 import ChatPage from './pages/chatPage/ChatPage'
 import Login from './pages/login/Login'
+import EditCarPage from './pages/editCarPage/EditCarPage'
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 					<Route path='/AdminMain' element={<AdminMain />} />
 					<Route path='/addCarPage' element={<AddCarPage />} />
 					<Route path='/chatPage' element={<ChatPage />} />
+					<Route path="/edit-car/:id" element={<EditCarPage />} />
 				</Routes>
 			</div>
 		</div>

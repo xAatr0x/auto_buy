@@ -79,7 +79,7 @@ function Header({ onLogin }) {
 				</Link>
 			</nav>
 			<div className='headerBtn'>
-				
+			<NewMessage onClick={openModal} />
 				<Link to={'./addCarPage'}>
 					<button className='btnAddCar'>Додати авто</button>
 				</Link>
