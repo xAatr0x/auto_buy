@@ -1,0 +1,115 @@
+.pageContainer {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	background-color: #f8f8f8;
+  }
+  
+  .carInfoContainer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+  }
+  
+  .carImageContainer {
+	flex: 1;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	border-radius: 8px;
+  }
+  
+  .carImage {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+  }
+  
+  .carDetails {
+	flex: 2;
+	min-width: 320px;
+	padding: 15px;
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carName {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 10px;
+  }
+  
+  .priceContainer {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 15px;
+  }
+  
+  .price {
+	font-size: 1.5rem;
+	font-weight: bold;
+  }
+  
+  .carAttributes p {
+	font-size: 1rem;
+	color: #555;
+	margin-bottom: 8px;
+  }
+  
+  .carDescription  {
+	margin-top: 20px;
+	
+  }
+  
+  .carDescription h2 {
+	font-size: 1.3rem;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 10px;
+  }
+  
+  .contactSection {
+	margin-top: 30px;
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+  }
+  
+  .phoneButtonContainer {
+	flex: 1;
+  }
+  
+  .phoneButton,
+  .messageButton {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: black;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1rem;
+	transition: background-color 0.3s ease;
+  }
+  
+  .phoneButton:hover,
+  .messageButton:hover {
+	background-color: #0056b3;
+  }
+  
+  .messageButton {
+	flex: 1;
+	background-color: #28a745;
+  }
+  
+  .messageButton:hover {
+	background-color: #218838;
+  }
+  
+  .loadingSpinner {
+	margin: 0 auto;
+	display: block;
+  }
+  

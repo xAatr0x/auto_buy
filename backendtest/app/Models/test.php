@@ -33,7 +33,7 @@ class test extends Model
         'number_of_doors',
         'color',
         'price',
-        'photo_paths'
+        'photo_paths',
     ];
 
     public $timestamps = true;

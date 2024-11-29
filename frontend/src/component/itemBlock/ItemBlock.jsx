@@ -15,6 +15,7 @@ function ItemBlock({
 	number_of_owners,
 	price,
 	photo_paths,
+	is_sold,
 }) {
 	return (
 		<>
@@ -36,7 +37,7 @@ function ItemBlock({
 				</div>
 				<div className='horizontalLine'></div>
 				<div className='itemBlockInfo'>
-					<p>Колір: {color}</p> <p>Пробіг: {runs}</p>
+					<p>Колір: {color}</p> <p>Пробіг: {runs} Км</p>
 				</div>
 				<div className='horizontalLine'></div>
 				<div className='itemBlockInfo'>

@@ -10,7 +10,8 @@ import AdminMain from './pages/adminMain/AdminMain'
 import Header from './component/header/Header'
 import ChatPage from './pages/chatPage/ChatPage'
 import Login from './pages/login/Login'
-import EditCarPage from './pages/EditCarPage/EditCarPage';
+import EditCarPage from './pages/EditCarPage/EditCarPage'
+import Footer from './component/footer/footer'
 
 function App() {
 	return (
@@ -31,6 +32,7 @@ function App() {
 					<Route path="/edit-car/:id" element={<EditCarPage />} />
 				</Routes>
 			</div>
+			<Footer />
 		</div>
 	)
 }

@@ -65,9 +65,8 @@ function Main() {
 	const handleSubmit = async e => {
 		e.preventDefault()
 		try {
-			let url = 'http://127.0.0.1:8000/api/list?verified_vin=1'
+			let url = 'http://127.0.0.1:8000/api/list?verified_vin=1&is_sold=0'
 
-			// Додавання параметрів до URL, якщо вони мають значення
 			url += `?verified_vin=${verifiedVIN ? 1 : 0}`
 
 			if (type) url += `&type=${encodeURIComponent(type)}`
@@ -94,18 +93,31 @@ function Main() {
 	React.useEffect(() => {
 		const fetchCars = async () => {
 			try {
-				const response = await axios.get(
-					'http://127.0.0.1:8000/api/list?verified_vin=1'
-				)
-				setCars(response.data)
-				setLoading(false) 
+				const url = 'http://127.0.0.1:8000/api/list?verified_vin=1&is_sold=0';
+				
+				const response = await fetch(url, {
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				});
+	
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+	
+				const data = await response.json();
+	
+				setCars(data);
+				setLoading(false);
+				console.log('API response:', data);
 			} catch (error) {
-				console.error('Помилка при отриманні списку машин:', error)
+				console.error('Error fetching cars:', error);
 			}
-		}
-
-		fetchCars()
-	}, [])
+		};
+	
+		fetchCars();
+	}, []);
 
 	return (
 		<div>
@@ -270,8 +282,8 @@ function Main() {
 					</div>
 				</div>
 			)}
-			<Heading title='Каталог марок' />
-			<Catolagy />
+			{/* <Heading title='Каталог марок' />
+			<Catolagy /> */}
 		</div>
 	)
 }
