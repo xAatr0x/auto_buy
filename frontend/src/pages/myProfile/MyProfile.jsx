@@ -89,10 +89,6 @@ function MyProfile() {
                     <p>Пошта: {infoUser.email}</p>
                     <p>Номер Телефону: {infoUser.number}</p>
                 </div>
-                <div className={styles.soldInfo}>
-                    <p>Виставлені цим продавцем</p>
-                    <p>Продано</p>
-                </div>
                 <div className={styles.btn}>
                     <button onClick={openModal}>
                         <EditBtn />

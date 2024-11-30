@@ -16,7 +16,7 @@ const footer = () => {
           <ul className={styles.linksList}>
            
             <li>CarSales@gmail.com</li>
-            <li>+3800987890320</li>
+            <li>+380987890320</li>
             
           </ul>
         </div>

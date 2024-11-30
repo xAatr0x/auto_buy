@@ -3,6 +3,7 @@ import NumberQuest from '../../component/numberQuest/NumberQuest'
 import ZnakOkluky from '../../assets/svg/ZnakOkluky'
 import './AddCarPage.css'
 import AddNewPhoto from '../../assets/svg/AddNewPhoto'
+import { useNavigate } from 'react-router-dom';
 
 const AddCarForm = () => {
 	const userInfo = JSON.parse(localStorage.getItem('user-info'))
@@ -30,6 +31,7 @@ const AddCarForm = () => {
 	const [color, setColor] = useState('')
 	const [price, setPrice] = useState('')
 	const [photo_paths, setPhoto_paths] = useState('')
+	const navigate = useNavigate();
 
 	const calculateCombinedFuelConsumption = () => {
 		if (fuel_consumption_city && fuel_consumption_highway) {
@@ -85,6 +87,7 @@ const AddCarForm = () => {
 				alert(`Error: ${result.status} ${result.statusText}`)
 			} else {
 				alert('Data has been saved')
+				navigate('/')
 			}
 		} catch (error) {
 			console.error('Request failed', error)
@@ -124,7 +127,6 @@ const AddCarForm = () => {
 					<option value='Легкові'>Легкові</option>
 					<option value='Мото'>Мото</option>
 					<option value='Вантажівки'>Вантажівки</option>
-					<option value='Причепи'>Причепи</option>
 					<option value='Спецтехніка'>Спецтехніка</option>
 					<option value='Автобуси'>Автобуси</option>
 				</select>
@@ -132,36 +134,23 @@ const AddCarForm = () => {
 					<ZnakOkluky />
 					Марка авто
 				</div>
-				<select
+				<input
 					name='brand'
 					className=' addCarPageAddInfoCarSelector'
+					placeholder="Введіть марку"
 					onChange={e => setBrand(e.target.value)}
-				>
-					<option value=''>Оберіть</option>
-					<option value='BMW'>BMW</option>
-					<option value='Audi'>Audi</option>
-					<option value='Mercedes-Benz'>Mercedes-Benz</option>
-					<option value='Opel'>Opel</option>
-					<option value='Porche'>Porche</option>
-					<option value='Mini'>Mini</option>
-				</select>
+				/>
 				<div>
 					<ZnakOkluky />
 					Модель авто
 				</div>
-				<select
+				<input
 					name='model'
 					className='addCarPageAddInfoCarSelector'
 					onChange={e => setModel(e.target.value)}
-				>
-					<option value=''>Оберіть</option>
-					<option value='E46'>E 46</option>
-					<option value='A6'>A 6</option>
-					<option value='CS300'>CS 300</option>
-					<option value='Insignia'>Insignia</option>
-					<option value='Tiguan'>Tiguan</option>
-					<option value='F10'>F 10</option>
-				</select>
+					placeholder='Введіть модель'
+				/>
+				
 				<div>
 					<ZnakOkluky />
 					Рік випуску
@@ -188,19 +177,22 @@ const AddCarForm = () => {
 					<ZnakOkluky />
 					Тип кузова
 				</div>
-				<select
+				<input
 					name='body_type'
 					className='addCarPageAddInfoCarSelector'
+					placeholder='Тип кузову'
 					onChange={e => setBody_type(e.target.value)}
-				>
-					<option value=''>Оберіть</option>
+				/>
+					{/* <option value="" disabled selected>Оберіть</option>
 					<option value='Кабріолет'>Кабріолет</option>
 					<option value='Купе'>Купе</option>
 					<option value='Седан'>Седан</option>
 					<option value='Універсал'>Універсал</option>
 					<option value='Хетчбек'>Хетчбек</option>
 					<option value='Мінівен'>Мінівен</option>
-				</select>
+					<option value='Мото'>Мото</option>
+					required
+				</select> */}
 				<div>
 					<ZnakOkluky />
 					Регіон
@@ -209,14 +201,34 @@ const AddCarForm = () => {
 					name='region'
 					className='addCarPageAddInfoCarSelector'
 					onChange={e => setRegion(e.target.value)}
+					required
 				>
-					<option value=''>Оберіть</option>
-					<option value='Київ'>Київ</option>
-					<option value='Харків'>Харків</option>
-					<option value='Львів'>Львів</option>
-					<option value='Одеса'>Одеса</option>
-					<option value='Дніпро'>Дніпро</option>
-					<option value='Донецьк'>Донецьк</option>
+					<option value="" disabled selected>Оберіть регіон</option>
+					<option value='м. Київ'>м. Київ</option>
+					<option value='Вінницька'>Вінницька</option>
+					<option value='Волинська'>Волинська</option>
+					<option value='Дніпропетровська'>Дніпропетровська</option>
+					<option value='Донецька'>Донецька</option>
+					<option value='Житомирська'>Житомирська</option>
+					<option value='Закарпатська'>Закарпатська</option>
+					<option value='Запорізька'>Запорізька</option>
+					<option value='Івано-Франківська'>Івано-Франківська</option>
+					<option value='Київська'>Київська</option>
+					<option value='Кіровоградська'>Кіровоградська</option>
+					<option value='Луганська'>Луганська</option>
+					<option value='Львівська'>Львівська</option>
+					<option value='Миколаївська'>Миколаївська</option>
+					<option value='Одеська'>Одеська</option>
+					<option value='Полтавська'>Полтавська</option>
+					<option value='Рівненська'>Рівненська</option>
+					<option value='Сумська'>Сумська</option>
+					<option value='Тернопільська'>Тернопільська</option>
+					<option value='Харківська'>Харківська</option>
+					<option value='Херсонська'>Херсонська</option>
+					<option value='Хмельницька'>Хмельницька</option>
+					<option value='Черкаська'>Черкаська</option>
+					<option value='Чернівецька'>Чернівецька</option>
+					<option value='Чернігівська'>Чернігівська</option>
 				</select>
 				<div>
 					<ZnakOkluky />
@@ -226,14 +238,41 @@ const AddCarForm = () => {
 					name='city'
 					className='addCarPageAddInfoCarSelector'
 					onChange={e => setCity(e.target.value)}
+					required
 				>
-					<option value=''>Оберіть</option>
+					<option value="" disabled selected>Оберіть місто</option>
 					<option value='Київ'>Київ</option>
-					<option value='Харків'>Харків</option>
-					<option value='Львів'>Львів</option>
-					<option value='Одеса'>Одеса</option>
+					<option value='Біла Церква'>Біла Церква</option>
+					<option value='Бердянськ'>Бердянськ</option>
+					<option value='Вінниця'>Вінниця</option>
 					<option value='Дніпро'>Дніпро</option>
 					<option value='Донецьк'>Донецьк</option>
+					<option value='Житомир'>Житомир</option>
+					<option value='Запоріжжя'>Запоріжжя</option>
+					<option value='Івано-Франківськ'>Івано-Франківськ</option>
+					<option value='Кам’янське'>Кам’янське</option>
+					<option value='Керч'>Керч</option>
+					<option value='Краматорськ'>Краматорськ</option>
+					<option value='Кременчук'>Кременчук</option>
+					<option value='Луцьк'>Луцьк</option>
+					<option value='Луганськ'>Луганськ</option>
+					<option value='Львів'>Львів</option>
+					<option value='Маріуполь'>Маріуполь</option>
+					<option value='Мелітополь'>Мелітополь</option>
+					<option value='Миколаїв'>Миколаїв</option>
+					<option value='Одеса'>Одеса</option>
+					<option value='Полтава'>Полтава</option>
+					<option value='Рівне'>Рівне</option>
+					<option value='Севастополь'>Севастополь</option>
+					<option value='Суми'>Суми</option>
+					<option value='Тернопіль'>Тернопіль</option>
+					<option value='Ужгород'>Ужгород</option>
+					<option value='Харків'>Харків</option>
+					<option value='Херсон'>Херсон</option>
+					<option value='Хмельницький'>Хмельницький</option>
+					<option value='Черкаси'>Черкаси</option>
+					<option value='Чернівці'>Чернівці</option>
+					<option value='Чернігів'>Чернігів</option>
 				</select>
 				<div>
 					<ZnakOkluky />
@@ -266,18 +305,13 @@ const AddCarForm = () => {
 			</div>
 			<div className='addCarPageAddInfoCar'>
 				<div>Кількість власників</div>
-				<select
+				<input
 					name='number_of_owners'
 					className='addCarPageAddInfoCarSelector'
+					placeholder='Введіть кількість власників'
 					onChange={e => setNumber_of_owners(e.target.value)}
-				>
-					<option value=''>Оберіть</option>
-					<option value='1'>1</option>
-					<option value='2'>2</option>
-					<option value='3'>3</option>
-					<option value='4'>4</option>
-					<option value='5'>5</option>
-				</select>
+				/>
+
 				<div>Телефон власника</div>
 				<input
 					value={phone_owner}
@@ -336,7 +370,9 @@ const AddCarForm = () => {
 					className='addCarPageAddInfoCarSelector'
 					onChange={e => setNumber_of_doors(e.target.value)}
 				>
-					<option value=''>Оберіть</option>
+					<option value="" disabled selected>Оберіть</option>
+					<option value='0'>0</option>
+					<option value='1'>1</option>
 					<option value='2'>2</option>
 					<option value='3'>3</option>
 					<option value='4'>4</option>
@@ -349,13 +385,8 @@ const AddCarForm = () => {
 					name='color'
 					className='addCarPageInfoCarInput'
 					placeholder='Введіть колір'
+
 				/>
-			</div>
-			<div className='addCarPageAddMoreInfo'>
-				<NumberQuest title={'5'} />
-				Ціна авто
-			</div>
-			<div className='addCarPageAddInfoCar'>
 				<div>Ціна ($)</div>
 				<input
 					onChange={e => setPrice(e.target.value)}
@@ -363,11 +394,14 @@ const AddCarForm = () => {
 					name='price'
 					className='addCarPageInfoCarInput'
 					placeholder='Введіть ціну'
+					required
 				/>
 			</div>
+			
 
 			<button className='buttonAddCar' onClick={addProduct} type='submit'>
 				Додати авто
+				
 			</button>
 		</>
 	)

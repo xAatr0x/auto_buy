@@ -132,16 +132,16 @@ function Main() {
 						value={type}
 						onChange={e => setType(e.target.value)}
 					>
+						<option value="" disabled selected>Класифікація</option>
 						<option value=''>Будь-який</option>
 						<option value='Легкові'>Легкові</option>
 						<option value='Мото'>Мото</option>
 						<option value='Вантажівки'>Вантажівки</option>
-						<option value='Причепи'>Причепи</option>
 						<option value='Спецтехніка'>Спецтехніка</option>
 						<option value='Автобуси'>Автобуси</option>
 					</select>
 					<span className='verifiedVINCheck'>
-						<p>Перевіреній VIN</p>
+						<p><font  color="black">Перевіреній VIN</font></p>
 						<input
 							className='checkboxInput'
 							type='checkbox'
@@ -156,31 +156,45 @@ function Main() {
 						value={region}
 						onChange={e => setRegion(e.target.value)}
 					>
+						<option value="" disabled selected>Оберіть регіон</option>
 						<option value=''>Будь-який</option>
-						<option value='Одеса'>Одеса</option>
-						<option value='Львів'>Львів</option>
-						<option value='Харків'>Харків</option>
-						<option value='Дніпро'>Дніпро</option>
-						<option value='Донецьк'>Донецьк</option>
-						<option value='Івано-Франківськ'>Івано-Франківськ</option>
+						<option value='м. Київ'>м. Київ</option>
+						<option value='Вінницька'>Вінницька</option>
+						<option value='Волинська'>Волинська</option>
+						<option value='Дніпропетровська'>Дніпропетровська</option>
+						<option value='Донецька'>Донецька</option>
+						<option value='Житомирська'>Житомирська</option>
+						<option value='Закарпатська'>Закарпатська</option>
+						<option value='Запорізька'>Запорізька</option>
+						<option value='Івано-Франківська'>Івано-Франківська</option>
+						<option value='Київська'>Київська</option>
+						<option value='Кіровоградська'>Кіровоградська</option>
+						<option value='Луганська'>Луганська</option>
+						<option value='Львівська'>Львівська</option>
+						<option value='Миколаївська'>Миколаївська</option>
+						<option value='Одеська'>Одеська</option>
+						<option value='Полтавська'>Полтавська</option>
+						<option value='Рівненська'>Рівненська</option>
+						<option value='Сумська'>Сумська</option>
+						<option value='Тернопільська'>Тернопільська</option>
+						<option value='Харківська'>Харківська</option>
+						<option value='Херсонська'>Херсонська</option>
+						<option value='Хмельницька'>Хмельницька</option>
+						<option value='Черкаська'>Черкаська</option>
+						<option value='Чернівецька'>Чернівецька</option>
+						<option value='Чернігівська'>Чернігівська</option>
 					</select>
-					<select
+					<input
 						name='brand'
 						className='selects'
 						id='brandSelect'
+						placeholder="Введіть марку"
 						value={brand}
 						onChange={e => setBrand(e.target.value)}
-					>
-						<option value=''>Будь-який</option>
-						<option value='BMW'>BMW</option>
-						<option value='Audi'>Audi</option>
-						<option value='Mercedes-Benz'>Mercedes-Benz</option>
-						<option value='Opel'>Opel</option>
-						<option value='Porche'>Porche</option>
-						<option value='Volkswagen'>Volkswagen</option>
-					</select>
+					/>
+
 					<div className='verifiedYear'>
-						<p>Рік</p>
+						<p><font  color="black" >Рік</font></p>
 						<div className='inputVidDo'>
 							<input
 								id='VidYear'
@@ -198,22 +212,16 @@ function Main() {
 							/>
 						</div>
 					</div>
-					<select
+					<input
 						name='model'
 						className='selects'
 						id='modelSelect'
+						placeholder="Введіть модель"
 						value={model}
 						onChange={e => setModel(e.target.value)}
-					>
-						<option value=''>Спочатку виберіть марку</option>
-						<option value='A6'>A6</option>
-						<option value='5 Series'>5 Series</option>
-						<option value='Golf'>Golf</option>
-						<option value='Insignia'>Insignia</option>
-						<option value='Passat'>Passat</option>
-					</select>
+					/>
 					<span className='verifiedPrice'>
-						<p>Ціна</p>
+						<p><font  color="black" >Ціна</font></p>
 						<div className='inputVidDo'>
 							<input
 								id='VidPrice'
