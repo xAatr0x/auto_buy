@@ -38,6 +38,8 @@ function CarPage() {
   const [selectedReceiver, setSelectedReceiver] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const user = localStorage.getItem('user-info')
 
   // Fetch car information
   useEffect(() => {
@@ -52,9 +54,17 @@ function CarPage() {
         setLoading(false);
       }
     };
-
+    console.log(user)
     fetchItem();
   }, [id, navigate]);
+
+
+  useEffect(() => {
+    if (user) {
+      setIsLoggedIn(true);
+    }
+  }, [user]);
+
 
   // Fetch user by phone number
   useEffect(() => {
@@ -111,7 +121,7 @@ function CarPage() {
           </div>
         </div>
       </div>
-
+      {isLoggedIn && (
       <div className={styles.contactSection}>
         <div className={styles.phoneButtonContainer}>
         </div>
@@ -122,6 +132,8 @@ function CarPage() {
           </Link>
         )}
       </div>
+      )
+      }
     </div>
   );
 }

@@ -45,6 +45,7 @@ function Main() {
 	const [loading, setLoading] = React.useState(true)
 
 	const [type, setType] = useState('')
+	const [is_sold, setIsSold] = useState(true)
 	const [region, setRegion] = useState('')
 	const [brand, setBrand] = useState('')
 	const [yearFrom, setYearFrom] = useState('')

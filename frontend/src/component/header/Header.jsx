@@ -11,6 +11,8 @@ function Header({ onLogin }) {
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false) 
 	const [message, setMessage] = useState('') 
+	const user = localStorage.getItem('user-info')
+	const infoUser = JSON.parse(user)
 	const navigate = useNavigate()
 
 	useEffect(() => {
@@ -71,18 +73,31 @@ function Header({ onLogin }) {
 				<Link className='navigatorTarget' to={'./KatalogCar'}>
 					Всі авто
 				</Link>
+				{isLoggedIn ? (
 				<Link className='navigatorTarget' to={'./MyProfile'}>
 					Профіль
-				</Link>
+				</Link>):("")}
+				{isLoggedIn ? (
 				<Link className='navigatorTarget' to={`./chatPage`}>
 					Повідомлення
-				</Link>
+				</Link>):("")}
 			</nav>
 			<div className='headerBtn'>
 			{/* <NewMessage onClick={openModal} /> */}
-				<Link to={'./addCarPage'}>
-					<button className='btnAddCar'>Додати авто</button>
+				{isLoggedIn ? (
+				<Link to ={'/AdminMain'}>
+					{infoUser.is_admin && (<button className='btnAddCar'>Admin</button>)}
 				</Link>
+				):(
+					<button hidden className='btnAdmin'>Admin</button>
+				)}
+				{isLoggedIn ? (
+				<Link to={'./addCarPage'}>
+					{!infoUser.is_admin && (<button className='btnAddCar'>Додати авто</button>)}
+				</Link>
+				) : (
+				<button hidden className='btnAddCar'>Додати авто</button>
+				)}
 				{isLoggedIn ? (
 					<button onClick={handleLogout} className='btnLogReg'>
 						Вийти

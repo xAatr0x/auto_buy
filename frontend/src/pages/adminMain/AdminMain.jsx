@@ -119,7 +119,7 @@ function AdminMain() {
 					<div>
 						<button>Admin</button>
 						<p>Перевірка VIN коду</p>
-						<p>Продані авто</p>
+						<button>Продано</button>
 					</div>
 				</div>
 				<div className={styles.collection}>
