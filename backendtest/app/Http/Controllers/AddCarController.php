@@ -231,11 +231,15 @@ public function list(Request $request)
     $model = $request->get('model', null);
     $yearFrom = $request->get('year_from', null);
     $yearTo = $request->get('year_to', null);
-
+    $isSold = $request->get('is_sold', null);
     $query = AddCar::whereBetween('price', [$minPrice, $maxPrice]);
 
     if (!is_null($verifiedVin)) {
-        $query->where('verified_vin', $verifiedVin);
+        $query->where('verified_vin', $verifiedVin);     
+    }
+    if (!is_null($isSold)) {
+        $query->where('is_sold', $isSold);
+        
     }
     if (!is_null($type)) {
         $query->where('type_of_transport', $type);
